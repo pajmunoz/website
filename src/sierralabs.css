@@ -208,6 +208,19 @@
   width: 70px;
 }
 
+.sl-trustLogoText {
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 999px;
+  color: var(--sl-heading);
+  font-size: 13px;
+  font-weight: 700;
+  padding-bottom: 6px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 6px;
+  white-space: nowrap;
+}
+
 .sl-heroArt {
   position: relative;
 }

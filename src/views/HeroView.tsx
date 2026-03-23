@@ -20,10 +20,19 @@ function HeroView() {
           </div>
 
           <div className="sl-trust">
-            <div className="sl-trustLabel">Avalados por 100+ empresas</div>
+            <div className="sl-trustLabel">
+              Más de 10 años de experiencia con clientes de diferentes rubros.
+            </div>
             <div className="sl-trustLogos" aria-hidden="true">
-              {Array.from({ length: 10 }).map((_, idx) => (
-                <div key={idx} className="sl-trustLogo" />
+              {[
+                '10+ años en desarrollo',
+                'Startups y empresas',
+                'Proyectos de alto impacto',
+                'Soporte continuo',
+              ].map((item) => (
+                <div key={item} className="sl-trustLogoText">
+                  {item}
+                </div>
               ))}
             </div>
           </div>
