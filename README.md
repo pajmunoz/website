@@ -40,3 +40,44 @@ Se creará `dist.zip` en la raíz del proyecto.
 ```bash
 npm run preview
 ```
+
+## Automatizar: solo subir `dist` desde GitHub
+
+El workflow `.github/workflows/deploy-hostinger.yml` hace en cada push a `main`:
+
+1. `npm ci` + `npm run build`
+2. Sube **solo el contenido de `dist/`** a `public_html/` en Hostinger por FTP.
+
+### 1. Credenciales FTP en Hostinger
+
+En hPanel: **Archivos → Cuentas FTP** (o **FTP**). Anota:
+
+- Host (ej. `ftp.tudominio.com` o el que indique Hostinger)
+- Usuario FTP
+- Contraseña FTP
+
+### 2. Secrets en GitHub
+
+En el repo: **Settings → Secrets and variables → Actions → New repository secret**
+
+| Secret | Valor |
+|--------|--------|
+| `HOSTINGER_FTP_HOST` | Host FTP |
+| `HOSTINGER_FTP_USER` | Usuario FTP |
+| `HOSTINGER_FTP_PASSWORD` | Contraseña FTP |
+
+### 3. Rama
+
+Por defecto el deploy corre en push a **`main`**. Cambia la rama en el YAML si usas otra.
+
+### 4. Ruta remota
+
+Por defecto se despliega a `public_html/`. Si tu cuenta usa otra carpeta, edita `server-dir` en el workflow.
+
+### Limpieza del servidor
+
+`dangerous-clean-slate: true` borra en `public_html` lo que no esté en `dist` (evita mezclar archivos viejos). Si en `public_html` tienes cosas que no quieres borrar, quita esa opción o mueve esos archivos fuera.
+
+### Solo SFTP (sin FTP)
+
+Este workflow usa FTP. Si Hostinger solo te da SFTP, usa otro action (p. ej. subir `dist/` con `rsync`/`scp` y una clave SSH) o el despliegue Git de Hostinger con comando de build si tu plan lo permite.
