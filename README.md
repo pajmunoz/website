@@ -41,7 +41,32 @@ Se creará `dist.zip` en la raíz del proyecto.
 npm run preview
 ```
 
-<<<<<<< Updated upstream
+## Rama `deploy` (contenido de `dist/` en Git)
+
+Tras trabajar en tu rama de desarrollo, puedes copiar el build a la rama **`deploy`** (para Hostinger Git o revisión):
+
+```bash
+npm run publish:deploy-branch
+```
+
+Alias: `npm run publish:build-branch` (mismo script).
+
+Esto:
+
+1. Ejecuta `npm run build`
+2. Cambia a la rama `deploy` (la crea si no existe; si existe en `origin`, la rastrea)
+3. Limpia el árbol de la rama **sin borrar `node_modules`** en disco
+4. Copia el contenido de `dist/` a la raíz del repo en esa rama
+5. Hace commit (si hay cambios) y `git push origin deploy`
+6. Vuelve a la rama en la que estabas
+
+`node_modules` suele estar en `.gitignore`, así que no se sube al remoto; solo se conserva localmente para no tener que reinstalar dependencias al cambiar de rama.
+
+Variables opcionales:
+
+- `DEPLOY_BRANCH=nombre` — otra rama en lugar de `deploy` (también acepta `BUILD_BRANCH` por compatibilidad)
+- `DIST_DIR=carpeta` — otra carpeta de salida del build
+
 ## Automatizar: solo subir `dist` desde GitHub
 
 El workflow `.github/workflows/deploy-hostinger.yml` hace en cada push a `main`:
@@ -69,7 +94,7 @@ En el repo: **Settings → Secrets and variables → Actions → New repository 
 
 ### 3. Rama
 
-Por defecto el deploy corre en push a **`main`**. Cambia la rama en el YAML si usas otra.
+Por defecto el deploy corre en push a **`main`**. Cambia la rama en el YAML si usas otra (por ejemplo `deploy`).
 
 ### 4. Ruta remota
 
@@ -82,25 +107,3 @@ Por defecto se despliega a `public_html/`. Si tu cuenta usa otra carpeta, edita 
 ### Solo SFTP (sin FTP)
 
 Este workflow usa FTP. Si Hostinger solo te da SFTP, usa otro action (p. ej. subir `dist/` con `rsync`/`scp` y una clave SSH) o el despliegue Git de Hostinger con comando de build si tu plan lo permite.
-=======
-## Rama `build` (solo contenido de `dist/`)
-
-Tras trabajar en tu rama de desarrollo, puedes dejar la rama **`build`** con **únicamente** lo que saldría de `dist/` (ideal para conectar Hostinger solo a esa rama):
-
-```bash
-npm run publish:build-branch
-```
-
-Esto:
-
-1. Ejecuta `npm run build`
-2. Cambia a la rama `build` (la crea si no existe; si existe en `origin`, la rastrea)
-3. Sustituye el contenido de la rama por el de `dist/`
-4. Hace commit (si hay cambios) y `git push origin build`
-5. Vuelve a la rama en la que estabas
-
-Variables opcionales:
-
-- `BUILD_BRANCH=nombre` — otra rama en lugar de `build`
-- `DIST_DIR=carpeta` — otra carpeta de salida del build
->>>>>>> Stashed changes
