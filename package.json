@@ -9,7 +9,8 @@
     "build:hostinger": "npm run build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "zip:dist": "cd dist && zip -r ../dist.zip ."
+    "zip:dist": "cd dist && zip -r ../dist.zip .",
+    "publish:build-branch": "bash scripts/publish-build-branch.sh"
   },
   "dependencies": {
     "react": "^19.2.4",

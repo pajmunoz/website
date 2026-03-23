@@ -41,6 +41,7 @@ Se creará `dist.zip` en la raíz del proyecto.
 npm run preview
 ```
 
+<<<<<<< Updated upstream
 ## Automatizar: solo subir `dist` desde GitHub
 
 El workflow `.github/workflows/deploy-hostinger.yml` hace en cada push a `main`:
@@ -81,3 +82,25 @@ Por defecto se despliega a `public_html/`. Si tu cuenta usa otra carpeta, edita 
 ### Solo SFTP (sin FTP)
 
 Este workflow usa FTP. Si Hostinger solo te da SFTP, usa otro action (p. ej. subir `dist/` con `rsync`/`scp` y una clave SSH) o el despliegue Git de Hostinger con comando de build si tu plan lo permite.
+=======
+## Rama `build` (solo contenido de `dist/`)
+
+Tras trabajar en tu rama de desarrollo, puedes dejar la rama **`build`** con **únicamente** lo que saldría de `dist/` (ideal para conectar Hostinger solo a esa rama):
+
+```bash
+npm run publish:build-branch
+```
+
+Esto:
+
+1. Ejecuta `npm run build`
+2. Cambia a la rama `build` (la crea si no existe; si existe en `origin`, la rastrea)
+3. Sustituye el contenido de la rama por el de `dist/`
+4. Hace commit (si hay cambios) y `git push origin build`
+5. Vuelve a la rama en la que estabas
+
+Variables opcionales:
+
+- `BUILD_BRANCH=nombre` — otra rama en lugar de `build`
+- `DIST_DIR=carpeta` — otra carpeta de salida del build
+>>>>>>> Stashed changes
