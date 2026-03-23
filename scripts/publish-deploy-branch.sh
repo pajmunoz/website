@@ -26,7 +26,7 @@ cleanup_deploy_tree() {
     -exec rm -rf {} +
 }
 
-echo "==> Preparando rama $DEPLOY_BRANCH (copia de $DIST_DIR/; se conserva node_modules/)"
+echo "==> Preparando rama $DEPLOY_BRANCH (solo contenido de $DIST_DIR/ en la raíz; se conserva node_modules/)"
 
 if git show-ref --verify --quiet "refs/heads/$DEPLOY_BRANCH"; then
   git checkout "$DEPLOY_BRANCH"
@@ -41,6 +41,7 @@ else
   cleanup_deploy_tree
 fi
 
+# Solo el contenido de dist/ en la raíz de la rama deploy (sin carpeta dist/)
 cp -R "$ROOT/$DIST_DIR/." .
 
 git add -A
@@ -58,4 +59,4 @@ git push -u origin "$DEPLOY_BRANCH"
 
 git checkout "$CURRENT_BRANCH"
 
-echo "==> Listo. Rama $DEPLOY_BRANCH actualizada con el contenido de $DIST_DIR/ (node_modules no se borró en disco)."
+echo "==> Listo. Rama $DEPLOY_BRANCH: raíz = contenido de $DIST_DIR/ (node_modules no se borró en disco)."

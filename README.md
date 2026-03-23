@@ -56,9 +56,11 @@ Esto:
 1. Ejecuta `npm run build`
 2. Cambia a la rama `deploy` (la crea si no existe; si existe en `origin`, la rastrea)
 3. Limpia el árbol de la rama **sin borrar `node_modules`** en disco
-4. Copia el contenido de `dist/` a la raíz del repo en esa rama
+4. Copia **solo el contenido** de `dist/` a la **raíz** de la rama `deploy` (sin subcarpeta `dist/`)
 5. Hace commit (si hay cambios) y `git push origin deploy`
 6. Vuelve a la rama en la que estabas
+
+En el remoto, la rama `deploy` tendrá `index.html`, `assets/`, etc. en la raíz (como en `public_html/`).
 
 `node_modules` suele estar en `.gitignore`, así que no se sube al remoto; solo se conserva localmente para no tener que reinstalar dependencias al cambiar de rama.
 
