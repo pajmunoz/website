@@ -4,7 +4,7 @@ import { serviceCards } from '../data/landingData'
 
 function ServicesView() {
   return (
-    <section className="sl-section" aria-labelledby="servicios" id="servicios">
+    <section className="sl-section sl-section--packages" aria-labelledby="servicios" id="servicios">
       <div className="sl-container">
         <SectionHeader
           id="servicios"
