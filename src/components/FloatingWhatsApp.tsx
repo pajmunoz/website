@@ -1,9 +1,10 @@
-const WHATSAPP_E164 = '+593995352471'
+import { buildWhatsAppUrl } from '../constants/whatsapp'
+
 const DEFAULT_MESSAGE =
   'Hola, me gustaría recibir más información sobre los productos de SierraLabs.'
 
 function FloatingWhatsApp() {
-  const href = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(DEFAULT_MESSAGE)}`
+  const href = buildWhatsAppUrl(DEFAULT_MESSAGE)
 
   return (
     <a
