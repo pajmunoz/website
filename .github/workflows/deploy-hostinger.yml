@@ -19,6 +19,16 @@ jobs:
           node-version: '22'
           cache: npm
 
+      # Optional: only needed for private packages on npm or if you use a custom registry.
+      # If NPM_TOKEN is unset, public installs still work (see package-lock.json using registry.npmjs.org).
+      - name: Authenticate to npm
+        run: |
+          if [ -n "${NPM_TOKEN}" ]; then
+            echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+          fi
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Install and build
         run: |
           npm ci
