@@ -34,12 +34,54 @@ jobs:
           npm ci
           npm run build
 
+      # ENOTFOUND on deploy is almost always a bad HOSTINGER_FTP_HOST: use the hostname only
+      # (no ftp://, no path). Copy it from hPanel → Files → FTP Accounts → FTP hostname.
+      - name: Prepare FTP hostname
+        id: ftp_prepare
+        env:
+          HOSTINGER_FTP_HOST: ${{ secrets.HOSTINGER_FTP_HOST }}
+        run: |
+          set -euo pipefail
+          h="${HOSTINGER_FTP_HOST:-}"
+          h="${h#ftp://}"
+          h="${h#ftps://}"
+          h="${h%%/*}"
+          h="$(printf '%s' "$h" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
+          if [ -z "$h" ]; then
+            echo "::error::HOSTINGER_FTP_HOST is empty after trimming. Set the secret to the FTP hostname only (example: ftp.tudominio.com), not a URL."
+            exit 1
+          fi
+          if ! getent hosts "$h" >/dev/null 2>&1; then
+            echo "::error::HOSTINGER_FTP_HOST does not resolve via DNS. Check for typos in the secret or use the IP shown in hPanel if the hostname fails."
+            exit 1
+          fi
+          echo "host=$h" >> "$GITHUB_OUTPUT"
+
+      # 530 Login incorrect: el servidor rechaza usuario/contraseña. No es un fallo del YAML.
+      # En hPanel → Files → FTP Accounts: usa el mismo usuario y contraseña del FTP (no el de hPanel si es distinto).
+      # Tras cambiar la contraseña en el panel, actualiza HOSTINGER_FTP_PASSWORD en GitHub.
+      # Sin espacios al copiar; si falla, prueba FTPS (pasos opcionales abajo comentados).
+      - name: Check FTP credentials secrets are set
+        env:
+          HOSTINGER_FTP_PASSWORD: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          HOSTINGER_FTP_USER: ${{ secrets.HOSTINGER_FTP_USER }}
+        run: |
+          if [ -z "${HOSTINGER_FTP_USER}" ] || [ -z "${HOSTINGER_FTP_PASSWORD}" ]; then
+            echo "::error::HOSTINGER_FTP_USER o HOSTINGER_FTP_PASSWORD está vacío en Secrets."
+            exit 1
+          fi
+
       - name: Deploy dist to Hostinger via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.HOSTINGER_FTP_HOST }}
+          server: ${{ steps.ftp_prepare.outputs.host }}
           username: ${{ secrets.HOSTINGER_FTP_USER }}
           password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          # Si 530 persiste con credenciales correctas en FileZilla, prueba descomentar:
+          # protocol: ftps
+          # port: 21
+          # security: loose
           local-dir: ./dist/
-          server-dir: ./public_html/
+          # La cuenta FTP de Hostinger suele abrir ya en public_html; ./public_html/ duplicaba la carpeta.
+          server-dir: ./
           dangerous-clean-slate: true
