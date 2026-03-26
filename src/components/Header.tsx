@@ -2,11 +2,9 @@ import { useEffect, useState } from 'react'
 
 const NAV_ITEMS = [
   { href: '#inicio', label: 'Inicio' },
-  { href: '#que', label: 'Servicios' },
+  { href: '#servicios', label: 'Servicios' },
   { href: '#proceso', label: 'Proceso' },
   { href: '#paquetes', label: 'Paquetes' },
-  { href: '#portafolio', label: 'Portafolio' },
-  { href: '#acerca', label: 'Acerca De' },
   { href: '#contacto', label: 'Contacto' },
 ] as const
 
@@ -14,73 +12,61 @@ function Header() {
   const [activeHref, setActiveHref] = useState<string>('#inicio')
 
   useEffect(() => {
-    const sections = NAV_ITEMS.map((item) => document.querySelector(item.href)).filter(
-      (section): section is Element => Boolean(section),
-    )
+    function updateActive() {
+      const triggerY = window.scrollY + window.innerHeight * 0.35
 
-    if (!sections.length) {
-      return
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
-
-        if (!visible.length) {
-          return
+      let current: string = NAV_ITEMS[0].href
+      for (const item of NAV_ITEMS) {
+        const el = document.querySelector(item.href)
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.scrollY
+          if (top <= triggerY) current = item.href
         }
-
-        setActiveHref(`#${visible[0].target.id}`)
-      },
-      {
-        root: null,
-        rootMargin: '-35% 0px -50% 0px',
-        threshold: [0.2, 0.35, 0.5, 0.7],
-      },
-    )
-
-    sections.forEach((section) => observer.observe(section))
-
-    return () => {
-      observer.disconnect()
+      }
+      setActiveHref(current)
     }
+
+    updateActive()
+    window.addEventListener('scroll', updateActive, { passive: true })
+    return () => window.removeEventListener('scroll', updateActive)
   }, [])
 
   return (
-    <header className="sl-header">
-      <div className="sl-container sl-headerInner">
-        <a className="sl-logoLink" href="#inicio" aria-label="SierraLabs">
-          <span className="sl-wordmark">SIERRA LABS</span>
+    <nav className="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl dark:bg-[#131313]/60 border-b border-[#BFF0FF]/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]">
+      <div className="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+        <a href="#inicio" aria-label="SierraLabs inicio">
+          <div className="text-2xl font-black tracking-tighter text-[#BFF0FF] uppercase font-headline">
+            SIERRA LABS
+          </div>
         </a>
 
-        <nav className="sl-nav" aria-label="Navegación principal">
+        <div className="hidden md:flex items-center space-x-8 font-medium tracking-tight text-sm">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.href}
-              className={`sl-navLink${activeHref === item.href ? ' sl-navLinkActive' : ''}`}
               href={item.href}
+              className={
+                activeHref === item.href
+                  ? 'text-[#BFF0FF] border-b-2 border-[#BFF0FF] pb-1 transition-all duration-300'
+                  : 'text-[#e5e2e1]/70 hover:text-[#BFF0FF] transition-all duration-300'
+              }
             >
               {item.label}
             </a>
           ))}
-        </nav>
-
-        <div className="sl-headerCtas">
-          <a
-            className="sl-primaryBtn"
-            href="https://forms.gle/ukfE8YVW7R9oQvsL8"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Agendar llamada
-          </a>
         </div>
+
+        <a
+          className="bg-gradient-to-r from-primary-container to-primary text-on-primary-container px-6 py-2 rounded-full font-bold text-sm scale-100 active:scale-95 transition-transform hover:shadow-[0_0_20px_rgba(191,240,255,0.3)]"
+          href="https://forms.gle/ukfE8YVW7R9oQvsL8"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Empezar proyecto
+        </a>
       </div>
-    </header>
+    </nav>
   )
 }
 
 export default Header
-

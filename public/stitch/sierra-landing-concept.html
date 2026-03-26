@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sierra Labs | Engineering the Ethereal</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-tint": "#3dd7f9",
+              "tertiary-container": "#cdc8e9",
+              "on-error-container": "#ffdad6",
+              "surface-container": "#201f1f",
+              "inverse-on-surface": "#313030",
+              "on-primary": "#003641",
+              "inverse-primary": "#00687a",
+              "tertiary-fixed-dim": "#c8c3e3",
+              "error-container": "#93000a",
+              "secondary-fixed-dim": "#ffb77d",
+              "on-error": "#690005",
+              "surface-container-lowest": "#0e0e0e",
+              "on-surface-variant": "#bbc9cd",
+              "on-primary-container": "#005f70",
+              "on-secondary": "#4d2600",
+              "inverse-surface": "#e5e2e1",
+              "surface-variant": "#353534",
+              "secondary-fixed": "#ffdcc3",
+              "on-secondary-fixed-variant": "#6e3900",
+              "background": "#131313",
+              "tertiary-fixed": "#e4dfff",
+              "outline-variant": "#3c494d",
+              "primary-container": "#46ddff",
+              "surface-dim": "#131313",
+              "tertiary": "#eae5ff",
+              "on-secondary-container": "#ffd4b4",
+              "secondary": "#ffb77d",
+              "surface-container-high": "#2a2a2a",
+              "primary": "#bff0ff",
+              "on-tertiary-fixed": "#1b1931",
+              "on-tertiary-fixed-variant": "#46445f",
+              "outline": "#869397",
+              "surface": "#131313",
+              "on-tertiary": "#302d47",
+              "on-background": "#e5e2e1",
+              "secondary-container": "#944f00",
+              "surface-bright": "#3a3939",
+              "primary-fixed-dim": "#3dd7f9",
+              "error": "#ffb4ab",
+              "on-primary-fixed": "#001f26",
+              "on-tertiary-container": "#56536f",
+              "surface-container-low": "#1c1b1b",
+              "on-surface": "#e5e2e1",
+              "primary-fixed": "#adecff",
+              "surface-container-highest": "#353534",
+              "on-primary-fixed-variant": "#004e5d",
+              "on-secondary-fixed": "#2f1500"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .nebula-glow {
+            background: radial-gradient(circle at 50% 50%, rgba(191, 240, 255, 0.08) 0%, rgba(19, 19, 19, 0) 70%);
+        }
+        .glass-card {
+            background: rgba(53, 53, 52, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(191, 240, 255, 0.1);
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl dark:bg-[#131313]/60 border-b border-[#BFF0FF]/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-black tracking-tighter text-[#BFF0FF] uppercase font-headline">SIERRA LABS</div>
+<div class="hidden md:flex items-center space-x-8 font-['Inter'] font-medium tracking-tight text-sm">
+<a class="text-[#BFF0FF] border-b-2 border-[#BFF0FF] pb-1" href="#">Inicio</a>
+<a class="text-[#e5e2e1]/70 hover:text-[#BFF0FF] transition-all duration-300" href="#servicios">Servicios</a>
+<a class="text-[#e5e2e1]/70 hover:text-[#BFF0FF] transition-all duration-300" href="#proceso">Proceso</a>
+<a class="text-[#e5e2e1]/70 hover:text-[#BFF0FF] transition-all duration-300" href="#portafolio">Portafolio</a>
+<a class="text-[#e5e2e1]/70 hover:text-[#BFF0FF] transition-all duration-300" href="#paquetes">Paquetes</a>
+<a class="text-[#e5e2e1]/70 hover:text-[#BFF0FF] transition-all duration-300" href="#contacto">Contacto</a>
+</div>
+<button class="bg-gradient-to-r from-primary-container to-primary text-on-primary-container px-6 py-2 rounded-full font-bold text-sm scale-105 active:scale-95 transition-transform">
+                Empezar proyecto
+            </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden nebula-glow">
+<div class="absolute inset-0 z-0">
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-[120px]"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-8 text-center">
+<span class="label-md uppercase tracking-[0.2em] text-secondary font-bold mb-6 block">Innovación Digital</span>
+<h1 class="text-5xl md:text-8xl font-black tracking-tight leading-[0.9] mb-8 font-headline">
+                De idea a producto <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-tertiary to-secondary">en tiempo récord</span>
+</h1>
+<p class="text-on-surface-variant text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light leading-relaxed">
+                Construimos productos digitales de alta gama que automatizan tu flujo de trabajo, escalan tu visión y mejoran la vida de tus usuarios.
+            </p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-6">
+<button class="w-full md:w-auto bg-gradient-to-r from-primary-container to-primary text-on-primary-container px-10 py-4 rounded-full font-bold text-lg hover:shadow-[0_0_30px_rgba(191,240,255,0.3)] transition-all">
+                    Empezar proyecto
+                </button>
+<button class="w-full md:w-auto glass-card text-on-surface px-10 py-4 rounded-full font-bold text-lg hover:bg-surface-variant/40 transition-all">
+                    Ver portafolio
+                </button>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-32 px-8 bg-surface-container-low" id="servicios">
+<div class="max-w-7xl mx-auto">
+<div class="mb-20">
+<h2 class="text-4xl md:text-6xl font-black mb-4 tracking-tighter">Qué construimos</h2>
+<div class="h-1 w-24 bg-primary rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Service Cards -->
+<div class="glass-card p-10 rounded-xl hover:translate-y-[-8px] transition-transform group">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 block" style="font-variation-settings: 'FILL' 1;">language</span>
+<h3 class="text-2xl font-bold mb-4">Web Apps</h3>
+<p class="text-on-surface-variant leading-relaxed">Aplicaciones robustas y escalables con tecnologías modernas para optimizar tus operaciones de negocio.</p>
+</div>
+<div class="glass-card p-10 rounded-xl hover:translate-y-[-8px] transition-transform group">
+<span class="material-symbols-outlined text-4xl text-secondary mb-6 block" style="font-variation-settings: 'FILL' 1;">smartphone</span>
+<h3 class="text-2xl font-bold mb-4">Apps Móviles</h3>
+<p class="text-on-surface-variant leading-relaxed">Experiencias nativas y multiplataforma diseñadas para cautivar a tus usuarios en cualquier dispositivo.</p>
+</div>
+<div class="glass-card p-10 rounded-xl hover:translate-y-[-8px] transition-transform group">
+<span class="material-symbols-outlined text-4xl text-tertiary mb-6 block" style="font-variation-settings: 'FILL' 1;">settings_suggest</span>
+<h3 class="text-2xl font-bold mb-4">Herramientas Internas</h3>
+<p class="text-on-surface-variant leading-relaxed">Dashboards y sistemas de gestión personalizados que eliminan la fricción operativa de tu equipo.</p>
+</div>
+<div class="glass-card p-10 rounded-xl hover:translate-y-[-8px] transition-transform group">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 block" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<h3 class="text-2xl font-bold mb-4">Marketplaces</h3>
+<p class="text-on-surface-variant leading-relaxed">Ecosistemas complejos de compra-venta diseñados para el crecimiento y la facilidad de transacción.</p>
+</div>
+<div class="glass-card p-10 rounded-xl hover:translate-y-[-8px] transition-transform group">
+<span class="material-symbols-outlined text-4xl text-secondary mb-6 block" style="font-variation-settings: 'FILL' 1;">cloud_sync</span>
+<h3 class="text-2xl font-bold mb-4">SaaS</h3>
+<p class="text-on-surface-variant leading-relaxed">Arquitecturas multi-tenant listas para el mercado global con planes de suscripción y gestión de usuarios.</p>
+</div>
+<div class="glass-card p-10 rounded-xl hover:translate-y-[-8px] transition-transform group">
+<span class="material-symbols-outlined text-4xl text-tertiary mb-6 block" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<h3 class="text-2xl font-bold mb-4">Soluciones IA</h3>
+<p class="text-on-surface-variant leading-relaxed">Integración de modelos inteligentes para automatizar decisiones y análisis predictivo en tus plataformas.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Process Section -->
+<section class="py-32 px-8" id="proceso">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row items-end justify-between mb-24 gap-8">
+<div class="max-w-xl">
+<h2 class="text-4xl md:text-6xl font-black mb-6 tracking-tighter">Nuestro proceso</h2>
+<p class="text-on-surface-variant text-lg">Un camino estructurado desde la concepción hasta el éxito en el mercado.</p>
+</div>
+<div class="text-8xl font-black text-outline-variant/10 select-none">ESTRATEGIA</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 relative">
+<!-- Connection Line (Desktop) -->
+<div class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 -z-10"></div>
+<div class="relative">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest border border-primary flex items-center justify-center text-primary font-bold text-xl mb-8 glass-card">01</div>
+<h4 class="text-xl font-bold mb-4">Descubrimiento</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Analizamos tu mercado y definimos los requerimientos clave para asegurar que el producto resuelva problemas reales.</p>
+</div>
+<div class="relative">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest border border-secondary flex items-center justify-center text-secondary font-bold text-xl mb-8 glass-card">02</div>
+<h4 class="text-xl font-bold mb-4">Diseño</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Creamos interfaces intuitivas y estéticas que garantizan una experiencia de usuario excepcional y memorable.</p>
+</div>
+<div class="relative">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest border border-tertiary flex items-center justify-center text-tertiary font-bold text-xl mb-8 glass-card">03</div>
+<h4 class="text-xl font-bold mb-4">Desarrollo</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Nuestros ingenieros transforman los diseños en código limpio, escalable y de alto rendimiento utilizando stacks modernos.</p>
+</div>
+<div class="relative">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest border border-primary flex items-center justify-center text-primary font-bold text-xl mb-8 glass-card">04</div>
+<h4 class="text-xl font-bold mb-4">Lanzamiento</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Desplegamos tu producto con estándares de calidad premium y te acompañamos en el crecimiento continuo.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Packages Section -->
+<section class="py-32 px-8 bg-surface-container-lowest" id="paquetes">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-20">
+<h2 class="text-4xl md:text-6xl font-black mb-6 tracking-tighter">Planes de inversión</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Soluciones adaptadas a cada etapa de tu negocio, con transparencia y enfoque en resultados.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- Pricing Card 1 -->
+<div class="glass-card p-8 rounded-xl flex flex-col h-full border-t-4 border-t-primary/20">
+<h3 class="text-xl font-bold mb-2">Plan Start</h3>
+<div class="text-3xl font-black text-primary mb-6">$999<span class="text-sm font-normal text-on-surface-variant">/pago único</span></div>
+<ul class="space-y-4 mb-10 flex-grow text-sm">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Landing pages de alto impacto</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Diseño UI/UX moderno</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> SEO Básico</li>
+</ul>
+<button class="w-full py-3 rounded-full border border-primary/40 text-primary font-bold hover:bg-primary/10 transition-colors">Elegir Plan</button>
+</div>
+<!-- Pricing Card 2 (Featured) -->
+<div class="glass-card p-8 rounded-xl flex flex-col h-full border-t-4 border-t-secondary bg-surface-container-high/60 relative overflow-hidden">
+<div class="absolute top-4 right-4 bg-secondary text-on-secondary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Popular</div>
+<h3 class="text-xl font-bold mb-2">Plan Growth</h3>
+<div class="text-3xl font-black text-secondary mb-6">$2,499<span class="text-sm font-normal text-on-surface-variant">/proyecto</span></div>
+<ul class="space-y-4 mb-10 flex-grow text-sm">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span> Web 3-5 secciones</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span> CMS Integrado</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span> Automatizaciones básicas</li>
+</ul>
+<button class="w-full py-3 rounded-full bg-secondary text-on-secondary font-bold hover:opacity-90 transition-opacity">Elegir Plan</button>
+</div>
+<!-- Pricing Card 3 -->
+<div class="glass-card p-8 rounded-xl flex flex-col h-full border-t-4 border-t-tertiary/20">
+<h3 class="text-xl font-bold mb-2">Plan Pro</h3>
+<div class="text-3xl font-black text-tertiary mb-6">$4,999<span class="text-sm font-normal text-on-surface-variant">/proyecto</span></div>
+<ul class="space-y-4 mb-10 flex-grow text-sm">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-tertiary text-lg">check_circle</span> Web personalizada completa</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-tertiary text-lg">check_circle</span> Dashboard de administración</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-tertiary text-lg">check_circle</span> Integración de API</li>
+</ul>
+<button class="w-full py-3 rounded-full border border-tertiary/40 text-tertiary font-bold hover:bg-tertiary/10 transition-colors">Elegir Plan</button>
+</div>
+<!-- Pricing Card 4 -->
+<div class="glass-card p-8 rounded-xl flex flex-col h-full border-t-4 border-t-white/10">
+<h3 class="text-xl font-bold mb-2">Plan System</h3>
+<div class="text-3xl font-black text-on-surface mb-6">Custom</div>
+<ul class="space-y-4 mb-10 flex-grow text-sm">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-on-surface-variant text-lg">check_circle</span> App web a medida</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-on-surface-variant text-lg">check_circle</span> Arquitectura IA</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-on-surface-variant text-lg">check_circle</span> Soporte 24/7 dedicado</li>
+</ul>
+<button class="w-full py-3 rounded-full glass-card border-none text-on-surface font-bold hover:bg-white/10 transition-colors">Contactar</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Portfolio Section -->
+<section class="py-32 px-8" id="portafolio">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-center mb-20 gap-8">
+<h2 class="text-4xl md:text-6xl font-black tracking-tighter">Explora nuestro trabajo</h2>
+<div class="flex gap-4">
+<span class="px-6 py-2 rounded-full glass-card text-primary font-bold border-primary/20 cursor-pointer">Todos</span>
+<span class="px-6 py-2 rounded-full glass-card text-on-surface/50 hover:text-on-surface cursor-pointer">Web Apps</span>
+<span class="px-6 py-2 rounded-full glass-card text-on-surface/50 hover:text-on-surface cursor-pointer">Mobile</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Portfolio Items -->
+<div class="group relative overflow-hidden rounded-2xl aspect-[4/3] glass-card">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100" data-alt="Dark high-tech data visualization dashboard with neon blue glowing charts and futuristic interface elements" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALJroLwSKgEsKvcYWcO9gT8A8y8pF9325PDtwCt31NtUzfSvwuQ9Y7-LDkfxu5Vw_EYpm6ox9pj8ydD6M0SaTfujhqYUDq0hAQ0cuvSIOjrb04Pi2IvSz_15YWVkl3d-RS_zvwVfgcPv9cc1zo9fG7ew_8F4oNIemrSW8Zu_61eWj6kVA-cZhy7ZM_HrJQdzFpvaXdHJcXrlAeNq2-3ZA3G4Xt3kE-s2JB-0oGpAN9TEuYklqOZtSSBsOdrhWc1jz0nqVBZPcj-ySP"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+<div class="absolute bottom-0 p-8">
+<h4 class="text-2xl font-bold mb-2">The Legends</h4>
+<p class="text-primary text-sm font-label tracking-widest uppercase">Plataforma de E-sports</p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-2xl aspect-[4/3] glass-card">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100" data-alt="Sleek mobile app interface for insurance company with orange accents and clean minimalist editorial design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkCp4wxXM0_NYU6lc8FgSyafS0vLp8zk0GT4VceyMY7UfhgmvfNmUoz_yOdp57urLxKfYI1svJNWiWXeeUmu-ohASRSpgrqdIVnj8mwxXFMcmKa87TQvKrOlgolF7WYnAsIDRMj4KidVFtI9OwcUPdgo_5-YRL6GSSCmEeR4M3y79PbXTipblnNP72ux-YWO4zuUOT6gceC81p5ni_E5j7L9O0gMUK5d47clW0VJR0x0VxVDllRfy7KQayMhqLY0u-JCo5w8KwbTK7"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+<div class="absolute bottom-0 p-8">
+<h4 class="text-2xl font-bold mb-2">Krek Cover</h4>
+<p class="text-secondary text-sm font-label tracking-widest uppercase">Insurtech App</p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-2xl aspect-[4/3] glass-card">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100" data-alt="Sophisticated legal office management system interface with soft lavender glows and crisp typography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-A0t4m3CteKTxR0QvbxPsRd0AnOQ7_53zzR7inO15stfYOzxShgFxjddZf4Cf87NCyxBTSjSZqKu7tZkO0BSpUlo0Sse_iz3NL_BdWl4Nu-3w_xK1O73wRyIYmVx7Dtr9Tma4TAL4njwfk0M9385jWIEy-XEbWc6-tbCNd7UDth5QJg3slnhuRLSr55rHiBElVVxTZ5GpdGdVT3MazPwOpuQi5tu19_fVEcW7BR2Sm8bZvcMp7whviluNA4okcW7Z982suszA13WF"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+<div class="absolute bottom-0 p-8">
+<h4 class="text-2xl font-bold mb-2">Hinojosa Asesores</h4>
+<p class="text-tertiary text-sm font-label tracking-widest uppercase">Legal SaaS</p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-2xl aspect-[4/3] glass-card">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100" data-alt="Industrial automation dashboard with real-time analytics for oil and gas refinery monitoring" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3DtLpjGis4sn_x4lukXR5CxLeZxYiLDcm69oD0_v9IBNqUqmC9yGvoSykF2WmedB-kmWVA4ryk4eaxbCbW_UgOMmusFw3ArJRx1tbFuzIR_ALspc8A0dVTDEuEnJ5l8cgxeqxzSN4zuqD0ept3E1vXDKFjto51GbZD2PB2-ZS0kmDZNyCO6V0d2Y4aJ-XHDHXpuXF2snMYLp4v0wQQ_U4uiuuO8NUOr4OEfiGMNMJLUToUFvdJMmeGlUw60XhiVAnHRARbmxqntcG"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+<div class="absolute bottom-0 p-8">
+<h4 class="text-2xl font-bold mb-2">PetroSa</h4>
+<p class="text-primary text-sm font-label tracking-widest uppercase">Industrial Analytics</p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-2xl aspect-[4/3] glass-card">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100" data-alt="Vibrant multi-vendor marketplace website layout with dynamic product cards and dark elegant styling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc_NuW3RrVb2P5JGNHG8oylw2EU-BePGrY0kfzS66InI60OuspDgez8GyVlSYDm9BSj41eXO7enbnHhAG1-f6Xt9s3CIVMgNdgouK-wbNosidpkeIQxYS7o-6u_IVuEgpOiXyeNI9AP4e-6D5w7-RaSvnUEBKPX_ccpD3SnOUwqdIibfpoE3RTulYRnSjtWsNN4VKbkS1RcYwtRqlmt6zK0kCLyRjpGDkWn3Xl0zfyBbQUxbVm673Vi6zfqDT2_lYrTtnpryzC2iDx"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+<div class="absolute bottom-0 p-8">
+<h4 class="text-2xl font-bold mb-2">MarketFlow</h4>
+<p class="text-secondary text-sm font-label tracking-widest uppercase">Global Marketplace</p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-2xl aspect-[4/3] glass-card">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100" data-alt="Cyberpunk style artificial intelligence interface with neon glowing connections and futuristic geometric nodes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAppsQGGztrUo0rolLIXq2zW6FSDUlg-ZH2fS24QFYTevMwgk5ZNy-lJTk8qzhM8eUpmRgLHRc7l7LxY0k8JSOlNkoTtGAMhjzVokctgf4sb01OsSBcCJtMdwxzAzKqdEqtWOR56V5R4S2FIproO8NymanqxZuHQB9HIWg3hoGlwGoWZAFKTPH5iriAkqtjl1qlVyxOnxl7hGjPuk8NgRV86PqtRGtvvFBafAAC8N73X4GotgJA0cS9_bjLZlOzT0DFc4G9Ej19Hf1G"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+<div class="absolute bottom-0 p-8">
+<h4 class="text-2xl font-bold mb-2">AI Core</h4>
+<p class="text-tertiary text-sm font-label tracking-widest uppercase">Neural Network UI</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Us -->
+<section class="py-32 px-8 bg-surface-container-low">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-24">
+<h2 class="text-4xl md:text-6xl font-black mb-6 tracking-tighter">Por qué elegirnos</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Nuestra ventaja competitiva reside en la combinación de ingeniería de precisión y visión humana.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="text-center group">
+<div class="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-4xl text-primary">hub</span>
+</div>
+<h5 class="text-xl font-bold mb-4">Consultoría de IA</h5>
+<p class="text-on-surface-variant text-sm leading-relaxed">No solo codificamos, asesoramos sobre cómo la IA puede transformar tu modelo de negocio.</p>
+</div>
+<div class="text-center group">
+<div class="w-20 h-20 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:bg-secondary/20 transition-colors">
+<span class="material-symbols-outlined text-4xl text-secondary">verified</span>
+</div>
+<h5 class="text-xl font-bold mb-4">Estándares Pro</h5>
+<p class="text-on-surface-variant text-sm leading-relaxed">Aplicamos metodologías ágiles y Clean Architecture para asegurar que tu código dure años.</p>
+</div>
+<div class="text-center group">
+<div class="w-20 h-20 bg-tertiary/10 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:bg-tertiary/20 transition-colors">
+<span class="material-symbols-outlined text-4xl text-tertiary">chat</span>
+</div>
+<h5 class="text-xl font-bold mb-4">Comunicación</h5>
+<p class="text-on-surface-variant text-sm leading-relaxed">Sin secretos. Canales abiertos y actualizaciones constantes para que siempre sepas en qué punto estamos.</p>
+</div>
+<div class="text-center group">
+<div class="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-4xl text-primary">support_agent</span>
+</div>
+<h5 class="text-xl font-bold mb-4">Soporte Continuo</h5>
+<p class="text-on-surface-variant text-sm leading-relaxed">El lanzamiento es solo el inicio. Ofrecemos mantenimiento y evolución técnica proactiva.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-32 px-8 overflow-hidden">
+<div class="max-w-7xl mx-auto">
+<h2 class="text-4xl md:text-6xl font-black mb-20 tracking-tighter text-center">Lo que dicen de nosotros</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Testimonial 1 -->
+<div class="glass-card p-10 rounded-2xl">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-14 h-14 rounded-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a professional executive male with short dark hair and smart business attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy52GpV37vdePaAr_yFiltoZquaF2aLQ7QwftPUxLX_NDEBKqI2c_Ecxw8q1l6E9PsLDM5T93zkzh8RgGmy353LQddizcXTRnXFVkJYvIpzyuIAWyIarRsyfUI05-u6ReIQcwLsvdoE-_VlUlvIA9J0O5dk2iYmuqK-wQklda_kVi67YM_grgq5amZHyFpDgaS2kuJibYJBUBKrUMA5gh4Md4G2ZqvXmQ-bPxhHCqBM6RLe_-jw5PT6ANJ05kG1Fl0tasKVaDYlacA"/>
+</div>
+<div>
+<p class="font-bold">Jose I. Hernandez</p>
+<p class="text-primary text-xs tracking-widest uppercase">CEO at TechFlow</p>
+</div>
+</div>
+<p class="text-lg italic text-on-surface/90 leading-relaxed font-light">"Sierra Labs no solo construyó nuestra app, transformó nuestra visión en una herramienta competitiva que nos permitió escalar un 300% en 6 meses."</p>
+</div>
+<!-- Testimonial 2 -->
+<div class="glass-card p-10 rounded-2xl">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-14 h-14 rounded-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a confident professional woman with a warm friendly smile and editorial office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1XUJMQWG3UlNmaIDWvAnwE8yWp8ZuOR8E7IOSn2wCXI6e45HXh_o54iFlLbn8W_kFOKWN26OImHGWT3KH---2x9fIq-GvzqP-9jf9nmX-BYh7pxKEqpDMShco0y-ZM3C8ScL4hStMmPwQiLqLaW7NKnqshA8mBAvTHdaOYX-Q6nhYajQGE8NKa5TkDxCF557mCws3DCGHc8L645IwuUigm1H0t4uBOfKjsrzyGKWK8Awo8ZrzTk_EULbD8jKLJHudeGQCRLAHAQCe"/>
+</div>
+<div>
+<p class="font-bold">Blanca Gutierrez</p>
+<p class="text-secondary text-xs tracking-widest uppercase">Founder at Innova</p>
+</div>
+</div>
+<p class="text-lg italic text-on-surface/90 leading-relaxed font-light">"La atención al detalle en el diseño y la limpieza del código es algo que raramente se encuentra hoy en día. Son ingenieros de verdad."</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Form -->
+<section class="py-32 px-8 bg-surface-container-low relative overflow-hidden" id="contacto">
+<div class="absolute bottom-0 right-0 w-1/3 h-full bg-primary/5 blur-[150px] -z-0"></div>
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+<div>
+<h2 class="text-4xl md:text-7xl font-black mb-10 tracking-tighter">¿Listo? <br/><span class="text-secondary">Hagámoslo</span></h2>
+<p class="text-on-surface-variant text-xl mb-12 leading-relaxed">Cuéntanos tu idea y te daremos una hoja de ruta técnica en menos de 24 horas.</p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">alternate_email</span>
+<span>hello@sierralabs.digital</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<span>Sede Global - Remote First</span>
+</div>
+</div>
+</div>
+<div class="glass-card p-10 rounded-3xl">
+<form class="space-y-8">
+<div class="space-y-4">
+<label class="block text-sm font-label uppercase tracking-widest text-on-surface/60">Nombre completo</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-3 transition-colors" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-4">
+<label class="block text-sm font-label uppercase tracking-widest text-on-surface/60">Email corporativo</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-3 transition-colors" placeholder="john@empresa.com" type="email"/>
+</div>
+<div class="space-y-4">
+<label class="block text-sm font-label uppercase tracking-widest text-on-surface/60">Mensaje</label>
+<textarea class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-3 transition-colors" placeholder="Cuéntanos un poco sobre tu proyecto..." rows="3"></textarea>
+</div>
+<div class="space-y-4">
+<label class="block text-sm font-label uppercase tracking-widest text-on-surface/60">Preferencia de contacto</label>
+<div class="flex gap-6">
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="text-secondary focus:ring-secondary bg-transparent border-outline-variant" name="pref" type="radio"/>
+<span class="text-sm">Respuesta rápida</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="text-secondary focus:ring-secondary bg-transparent border-outline-variant" name="pref" type="radio"/>
+<span class="text-sm">Revisiones semanales</span>
+</label>
+</div>
+</div>
+<button class="w-full py-4 bg-gradient-to-r from-secondary-container to-secondary text-on-secondary font-black rounded-xl hover:shadow-[0_0_40px_rgba(255,183,125,0.2)] transition-all">Enviar propuesta</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#131313] w-full py-20 px-8 border-t border-[#BFF0FF]/5">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
+<div class="space-y-6">
+<div class="text-xl font-bold text-[#BFF0FF]">SIERRA LABS</div>
+<p class="font-['Inter'] font-light text-sm leading-relaxed text-[#e5e2e1]/50 italic">© 2024 Sierra Labs. Engineering the Ethereal.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-[#e5e2e1]/50 hover:text-[#BFF0FF] transition-colors cursor-pointer">public</span>
+<span class="material-symbols-outlined text-[#e5e2e1]/50 hover:text-[#BFF0FF] transition-colors cursor-pointer">account_circle</span>
+<span class="material-symbols-outlined text-[#e5e2e1]/50 hover:text-[#BFF0FF] transition-colors cursor-pointer">send</span>
+</div>
+</div>
+<div class="space-y-6">
+<h6 class="text-[#FFB77D] font-bold text-sm tracking-widest uppercase">Servicios</h6>
+<ul class="space-y-4 font-['Inter'] font-light text-sm">
+<li><a class="text-[#e5e2e1]/50 hover:text-[#BFF0FF] transition-colors" href="#">Desarrollo Web</a></li>
+<li><a class="text-[#e5e2e1]/50 hover:text-[#BFF0FF] transition-colors" href="#">App Móviles</a></li>
+<li><a class="text-[#e5e2e1]/50 hover:text-[#BFF0FF] transition-colors" href="#">Inteligencia Artificial</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h6 class="text-[#FFB77D] font-bold text-sm tracking-widest uppercase">Compañía</h6>
+<ul class="space-y-4 font-['Inter'] font-light text-sm">
+<li><a class="text-[#e5e2e1]/50 hover:text-[#BFF0FF] transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-[#e5e2e1]/50 hover:text-[#BFF0FF] transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-[#e5e2e1]/50 hover:text-[#BFF0FF] transition-colors" href="#">AI Ethics</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h6 class="text-[#FFB77D] font-bold text-sm tracking-widest uppercase">Contacto</h6>
+<ul class="space-y-4 font-['Inter'] font-light text-sm">
+<li class="text-[#e5e2e1]/50">Barcelona, España</li>
+<li class="text-[#e5e2e1]/50">Remote Global</li>
+<li><a class="text-[#FFB77D] border-b border-[#FFB77D]/30 pb-1" href="#">Contact Us</a></li>
+</ul>
+</div>
+</div>
+</footer>
+</body></html>

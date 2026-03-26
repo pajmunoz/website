@@ -8,11 +8,7 @@ type ContactFormState = {
 
 type SubmitStatus = 'error' | 'idle' | 'loading' | 'success'
 
-const initialContactForm: ContactFormState = {
-  email: '',
-  message: '',
-  name: '',
-}
+const initialContactForm: ContactFormState = { email: '', message: '', name: '' }
 
 const CONTACT_API_URL = 'https://portfolio-server-nine-green.vercel.app/api/send-email'
 
@@ -29,9 +25,7 @@ function ContactView() {
     try {
       const response = await fetch(CONTACT_API_URL, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email: contact.email,
           message: contact.message,
@@ -49,9 +43,7 @@ function ContactView() {
       }
 
       setSubmitStatus('success')
-      setFeedbackMessage(
-        data.message ?? 'Mensaje enviado con éxito. Te contactaremos pronto.',
-      )
+      setFeedbackMessage(data.message ?? 'Mensaje enviado con éxito. Te contactaremos pronto.')
       setContact(initialContactForm)
     } catch {
       setSubmitStatus('error')
@@ -60,104 +52,103 @@ function ContactView() {
   }
 
   return (
-    <section className="sl-contact" id="contacto" aria-labelledby="contactoTitulo">
-      <div className="sl-container sl-contactGrid">
-        <div className="sl-contactCopy">
-          <h2 className="sl-contactTitle" id="contactoTitulo">
-            ¿Listo? Hagámoslo
-          </h2>
-          <p className="sl-contactSubtitle">
-            Cuéntanos sobre tu idea y te contactamos para definir el siguiente paso.
-          </p>
-          <div className="sl-contactQuick">
-            <div className="sl-contactQuickItem">
-              <div className="sl-contactQuickIcon" aria-hidden="true" />
-              Respuesta rápida
+    <section className="py-32 px-8 bg-surface-container-low relative overflow-hidden" id="contacto">
+      <div className="absolute bottom-0 right-0 w-1/3 h-full bg-primary/5 blur-[150px] -z-0" aria-hidden="true" />
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+          <div>
+            <h2 className="text-4xl md:text-7xl font-black mb-10 tracking-tighter">
+              ¿Listo?{' '}
+              <br />
+              <span className="text-secondary">Hagámoslo</span>
+            </h2>
+            <p className="text-on-surface-variant text-xl mb-12 leading-relaxed">
+              Cuéntanos tu idea y te daremos una hoja de ruta técnica en menos de 24 horas.
+            </p>
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <span className="material-symbols-outlined text-primary">alternate_email</span>
+                <span>marketing@sierralabs.digital</span>
+              </div>
+              <div className="flex items-center gap-4">
+                <span className="material-symbols-outlined text-primary">location_on</span>
+                <span>Quito, Ecuador</span>
+              </div>
             </div>
-            <div className="sl-contactQuickItem">
-              <div className="sl-contactQuickIcon" aria-hidden="true" />
-              Revisiones semanales
-            </div>
+          </div>
+
+          <div className="glass-card p-10 rounded-3xl">
+            <form className="space-y-8" onSubmit={onSubmit}>
+              <div className="space-y-4">
+                <label className="block text-sm font-label uppercase tracking-widest text-on-surface/60">
+                  Nombre completo
+                </label>
+                <input
+                  className="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-3 transition-colors"
+                  placeholder="John Doe"
+                  type="text"
+                  name="name"
+                  required
+                  disabled={submitStatus === 'loading'}
+                  value={contact.name}
+                  onChange={(e) => setContact((c) => ({ ...c, name: e.target.value }))}
+                />
+              </div>
+              <div className="space-y-4">
+                <label className="block text-sm font-label uppercase tracking-widest text-on-surface/60">
+                  Email corporativo
+                </label>
+                <input
+                  className="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-3 transition-colors"
+                  placeholder="john@empresa.com"
+                  type="email"
+                  name="email"
+                  required
+                  disabled={submitStatus === 'loading'}
+                  value={contact.email}
+                  onChange={(e) => setContact((c) => ({ ...c, email: e.target.value }))}
+                />
+              </div>
+              <div className="space-y-4">
+                <label className="block text-sm font-label uppercase tracking-widest text-on-surface/60">
+                  Mensaje
+                </label>
+                <textarea
+                  className="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-3 transition-colors"
+                  placeholder="Cuéntanos un poco sobre tu proyecto..."
+                  rows={3}
+                  name="message"
+                  required
+                  disabled={submitStatus === 'loading'}
+                  value={contact.message}
+                  onChange={(e) => setContact((c) => ({ ...c, message: e.target.value }))}
+                />
+              </div>
+
+              <button
+                className="w-full py-4 bg-gradient-to-r from-secondary-container to-secondary text-on-secondary font-black rounded-xl hover:shadow-[0_0_40px_rgba(255,183,125,0.2)] transition-all disabled:opacity-50"
+                disabled={submitStatus === 'loading'}
+                type="submit"
+              >
+                {submitStatus === 'loading' ? 'Enviando...' : 'Enviar propuesta'}
+              </button>
+
+              {submitStatus !== 'idle' && (
+                <p
+                  className={`text-sm text-center mt-4 ${
+                    submitStatus === 'success' ? 'text-primary' : 'text-error'
+                  }`}
+                  role="status"
+                >
+                  {feedbackMessage}
+                </p>
+              )}
+            </form>
           </div>
         </div>
-
-        <form className="sl-contactForm" onSubmit={onSubmit}>
-          <div className="sl-formRow">
-            <label className="sl-label">
-              <span className="sl-labelText">Nombre</span>
-              <input
-                className="sl-input"
-                onChange={(event) =>
-                  setContact((current) => ({ ...current, name: event.target.value }))
-                }
-                disabled={submitStatus === 'loading'}
-                required
-                type="text"
-                name="name"
-                value={contact.name}
-                placeholder="Tu nombre"
-              />
-            </label>
-          </div>
-          <div className="sl-formRow">
-            <label className="sl-label">
-              <span className="sl-labelText">Email</span>
-              <input
-                className="sl-input"
-                onChange={(event) =>
-                  setContact((current) => ({ ...current, email: event.target.value }))
-                }
-                disabled={submitStatus === 'loading'}
-                required
-                type="email"
-                name="email"
-                value={contact.email}
-                placeholder="tu@email.com"
-              />
-            </label>
-          </div>
-          <div className="sl-formRow">
-            <label className="sl-label">
-              <span className="sl-labelText">Mensaje</span>
-              <textarea
-                className="sl-textarea"
-                name="message"
-                onChange={(event) =>
-                  setContact((current) => ({ ...current, message: event.target.value }))
-                }
-                disabled={submitStatus === 'loading'}
-                required
-                value={contact.message}
-                placeholder="¿Qué quieres construir?"
-              />
-            </label>
-          </div>
-
-          <button
-            className="sl-primaryBtn sl-formSubmit"
-            disabled={submitStatus === 'loading'}
-            type="submit"
-          >
-            {submitStatus === 'loading' ? 'Enviando...' : 'Enviar'}
-          </button>
-
-          {submitStatus !== 'idle' && (
-            <p
-              className={`sl-formFeedback ${
-                submitStatus === 'success'
-                  ? 'sl-formFeedbackSuccess'
-                  : 'sl-formFeedbackError'
-              }`}
-              role="status"
-            >
-              {feedbackMessage}
-            </p>
-          )}
-        </form>
       </div>
     </section>
   )
 }
 
 export default ContactView
-
