@@ -5,6 +5,8 @@ const NAV_ITEMS = [
   { href: '#servicios', label: 'Servicios' },
   { href: '#proceso', label: 'Proceso' },
   { href: '#paquetes', label: 'Paquetes' },
+  { href: '#portafolio', label: 'Nuestro trabajo' },
+  { href: '#acerca', label: 'Elígenos' },
   { href: '#contacto', label: 'Contacto' },
 ] as const
 
@@ -17,11 +19,15 @@ function Header() {
       const triggerY = window.scrollY + window.innerHeight * 0.35
 
       let current: string = NAV_ITEMS[0].href
+      let currentTop = -Infinity
       for (const item of NAV_ITEMS) {
         const el = document.querySelector(item.href)
         if (el) {
           const top = el.getBoundingClientRect().top + window.scrollY
-          if (top <= triggerY) current = item.href
+          if (top <= triggerY && top > currentTop) {
+            current = item.href
+            currentTop = top
+          }
         }
       }
       setActiveHref(current)
