@@ -3,7 +3,7 @@ import { features } from '../data/landingData'
 
 function FeaturesView() {
   return (
-    <section className="sl-section" aria-labelledby="queConstruimos" id="que">
+    <section className="sl-section sl-sectionAlt" aria-labelledby="queConstruimos" id="que">
       <div className="sl-container">
         <SectionHeader
           id="queConstruimos"

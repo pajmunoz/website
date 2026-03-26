@@ -3,7 +3,7 @@ import { whyUsCards } from '../data/landingData'
 
 function WhyUsView() {
   return (
-    <section className="sl-section" aria-labelledby="acerca" id="acerca">
+    <section className="sl-section sl-sectionAlt" aria-labelledby="acerca" id="acerca">
       <div className="sl-container">
         <SectionHeader
           id="acerca"

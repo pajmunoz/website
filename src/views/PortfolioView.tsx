@@ -11,6 +11,11 @@ function PortfolioView() {
           title="Explora nuestro trabajo"
           subtitle="Aplicaciones Web, Agentes IA, Automatizaciones, Aplicaciones Móviles y más."
         />
+        <div className="sl-portfolioFilters" aria-hidden="true">
+          <span className="sl-filterChip sl-filterChipActive">Todos</span>
+          <span className="sl-filterChip">Web Apps</span>
+          <span className="sl-filterChip">Mobile</span>
+        </div>
 
         <div className="sl-projectGrid">
           {projects.map((project) => (

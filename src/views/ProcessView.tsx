@@ -3,8 +3,11 @@ import { processSteps } from '../data/landingData'
 
 function ProcessView() {
   return (
-    <section className="sl-section sl-process" aria-labelledby="proceso">
+    <section className="sl-section sl-process" aria-labelledby="proceso" id="proceso">
       <div className="sl-container">
+        <div className="sl-processBackdrop" aria-hidden="true">
+          ESTRATEGIA
+        </div>
         <SectionHeader
           id="proceso"
           title="Nuestro proceso"

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800;900&display=swap');
+
 :root {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -13,7 +15,7 @@ html {
 body {
   background: var(--sl-bg, #ffffff);
   color: var(--sl-muted, #6b6375);
-  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
   line-height: 1.6;
   margin: 0;
 }

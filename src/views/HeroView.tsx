@@ -6,7 +6,11 @@ function HeroView() {
       <div className="sl-container sl-heroGrid">
         <div className="sl-heroCopy">
           <div className="sl-heroPill">Tecnología + Producto + SaaS</div>
-          <h1 className="sl-heroTitle">De idea a producto en tiempo récord</h1>
+          <h1 className="sl-heroTitle">
+            De idea a producto
+            <br />
+            <span className="sl-gradientText">en tiempo récord</span>
+          </h1>
           <p className="sl-heroSubtitle">
             Construimos productos digitales que facilitan tu trabajo y mejoran tu vida.
           </p>

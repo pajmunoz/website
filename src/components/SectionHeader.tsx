@@ -10,6 +10,7 @@ function SectionHeader({ id, subtitle, title }: SectionHeaderProps) {
       <h2 className="sl-sectionTitle" id={id}>
         {title}
       </h2>
+      <div className="sl-sectionLine" aria-hidden="true" />
       <p className="sl-sectionSubtitle">{subtitle}</p>
     </div>
   )

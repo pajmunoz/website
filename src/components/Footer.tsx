@@ -3,13 +3,7 @@ function Footer() {
     <footer className="sl-footer" aria-label="Pie de página">
       <div className="sl-container sl-footerInner">
         <div className="sl-footerBrand">
-          <img
-            className="sl-footerLogo"
-            src="/logo.png"
-            alt="SierraLabs"
-            height={55}
-            width={170}
-          />
+          <div className="sl-footerWordmark">SIERRA LABS</div>
           <div className="sl-footerText">Desarrollo de Software y Soluciones IA</div>
         </div>
 
