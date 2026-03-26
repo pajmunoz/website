@@ -35,9 +35,12 @@ function Header() {
     <nav className="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl dark:bg-[#131313]/60 border-b border-[#BFF0FF]/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]">
       <div className="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
         <a href="#inicio" aria-label="SierraLabs inicio">
-          <div className="text-2xl font-black tracking-tighter text-[#BFF0FF] uppercase font-headline">
-            SIERRA LABS
-          </div>
+          <img
+            src="/logo-sierralabs.svg"
+            alt="Sierra Labs"
+            className="h-9 w-auto object-contain"
+            style={{ filter: 'brightness(0) invert(1)' }}
+          />
         </a>
 
         <div className="hidden md:flex items-center space-x-8 font-medium tracking-tight text-sm">
