@@ -56,7 +56,7 @@ function ContactView() {
       <div className="absolute bottom-0 right-0 w-1/3 h-full bg-primary/5 blur-[150px] -z-0" aria-hidden="true" />
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
-          <div>
+          <div data-anim="contact-copy">
             <h2 className="text-4xl md:text-7xl font-black mb-10 tracking-tighter">
               ¿Listo?{' '}
               <br />
@@ -77,7 +77,7 @@ function ContactView() {
             </div>
           </div>
 
-          <div className="glass-card p-10 rounded-3xl">
+          <div data-anim="contact-form" className="glass-card p-10 rounded-3xl">
             <form className="space-y-8" onSubmit={onSubmit}>
               <div className="space-y-4">
                 <label className="block text-sm font-label uppercase tracking-widest text-on-surface/60">

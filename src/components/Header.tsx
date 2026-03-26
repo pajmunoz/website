@@ -10,9 +10,10 @@ const NAV_ITEMS = [
 
 function Header() {
   const [activeHref, setActiveHref] = useState<string>('#inicio')
+  const [pastHero, setPastHero] = useState<boolean>(false)
 
   useEffect(() => {
-    function updateActive() {
+    function updateState() {
       const triggerY = window.scrollY + window.innerHeight * 0.35
 
       let current: string = NAV_ITEMS[0].href
@@ -24,11 +25,17 @@ function Header() {
         }
       }
       setActiveHref(current)
+
+      const hero = document.querySelector('#inicio')
+      if (hero) {
+        const heroBottom = hero.getBoundingClientRect().bottom
+        setPastHero(heroBottom <= 80)
+      }
     }
 
-    updateActive()
-    window.addEventListener('scroll', updateActive, { passive: true })
-    return () => window.removeEventListener('scroll', updateActive)
+    updateState()
+    window.addEventListener('scroll', updateState, { passive: true })
+    return () => window.removeEventListener('scroll', updateState)
   }, [])
 
   return (
@@ -60,10 +67,15 @@ function Header() {
         </div>
 
         <a
-          className="bg-gradient-to-r from-primary-container to-primary text-on-primary-container px-6 py-2 rounded-full font-bold text-sm scale-100 active:scale-95 transition-transform hover:shadow-[0_0_20px_rgba(191,240,255,0.3)]"
+          className={`bg-gradient-to-r from-primary-container to-primary text-on-primary-container px-6 py-2 rounded-full font-bold text-sm active:scale-95 hover:shadow-[0_0_20px_rgba(191,240,255,0.3)] transition-all duration-300 ${
+            pastHero
+              ? 'opacity-100 translate-y-0 pointer-events-auto'
+              : 'opacity-0 -translate-y-2 pointer-events-none'
+          }`}
           href="https://forms.gle/ukfE8YVW7R9oQvsL8"
           target="_blank"
           rel="noreferrer"
+          aria-hidden={!pastHero}
         >
           Empezar proyecto
         </a>

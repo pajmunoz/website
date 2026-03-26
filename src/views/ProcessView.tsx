@@ -43,6 +43,7 @@ function ProcessView() {
             </p>
           </div>
           <div
+            data-anim="process-backdrop"
             className="text-8xl font-black text-outline-variant/10 select-none"
             aria-hidden="true"
           >
@@ -52,6 +53,7 @@ function ProcessView() {
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 relative">
           <div
+            data-anim="process-line"
             className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 -z-10"
             aria-hidden="true"
           />

@@ -1,6 +1,7 @@
 import FloatingWhatsApp from './components/FloatingWhatsApp'
 import Footer from './components/Footer'
 import Header from './components/Header'
+import { useLandingAnimations } from './hooks/useLandingAnimations'
 import './sierralabs.css'
 import ContactView from './views/ContactView'
 import FeaturesView from './views/FeaturesView'
@@ -12,6 +13,7 @@ import TestimonialsView from './views/TestimonialsView'
 import WhyUsView from './views/WhyUsView'
 
 function App() {
+  useLandingAnimations()
   return (
     <div className="min-h-screen bg-[#131313] text-[#e5e2e1] font-body selection:bg-primary selection:text-on-primary">
       <Header />
