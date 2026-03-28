@@ -244,17 +244,6 @@ export function useLandingAnimations() {
         })
       })
 
-      // ── TESTIMONIALS: slide from alternating sides ──────────────────────
-      gsap.utils.toArray<HTMLElement>('#testimonios article').forEach((card, i) => {
-        gsap.from(card, {
-          x: i % 2 === 0 ? -80 : 80,
-          opacity: 0,
-          duration: 1,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: card, start: 'top 85%' },
-        })
-      })
-
       // ── CONTACT: copy slides from left, form from right ────────────────
       gsap.from('[data-anim="contact-copy"]', {
         x: -80,
