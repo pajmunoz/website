@@ -417,11 +417,11 @@ function ConocenosView() {
 
         <div className="flex flex-col gap-6 lg:gap-8">
           <div className="relative isolate">
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-start lg:gap-12">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-start lg:gap-5">
               <div
                 aria-labelledby="conocenos-member-name"
                 aria-live="polite"
-                className="order-2 flex w-full max-w-2xl flex-col gap-6 pl-12 sm:gap-7 sm:pl-14 lg:order-1 lg:max-w-xl lg:pt-1 lg:pl-16 lg:pr-8 xl:pr-10"
+                className="order-2 flex w-full max-w-2xl flex-col gap-6 pl-12 sm:gap-7 sm:pl-14 lg:order-1 lg:max-w-none lg:min-w-0 lg:pt-1 lg:pl-16 lg:pr-2 xl:pr-3"
                 data-conocenos-bio
                 id="member-panel"
                 ref={bioRef}
@@ -476,7 +476,7 @@ function ConocenosView() {
                 </div>
               </div>
 
-              <div className="order-1 flex justify-center overflow-visible lg:order-2 lg:justify-end lg:sticky lg:top-28 lg:pl-6 xl:pl-10">
+              <div className="order-1 flex justify-center overflow-visible lg:order-2 lg:justify-start lg:sticky lg:top-28 lg:min-w-0">
                 <div className="relative w-full max-w-[min(100%,340px)] sm:max-w-[min(100%,380px)]">
                   <div
                     className="relative aspect-[4/5] w-full [-webkit-mask-image:radial-gradient(ellipse_92%_90%_at_50%_50%,#000_62%,transparent_100%)] [mask-image:radial-gradient(ellipse_92%_90%_at_50%_50%,#000_62%,transparent_100%)]"
