@@ -7,7 +7,6 @@ const NAV_ITEMS = [
   { href: '#paquetes', label: 'Paquetes' },
   { href: '#portafolio', label: 'Nuestro trabajo' },
   { href: '#acerca', label: 'Elígenos' },
-  { href: '#conocenos', label: 'Conócenos' },
   { href: '#contacto', label: 'Contacto' },
 ] as const
 

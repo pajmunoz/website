@@ -1,38 +1,38 @@
 const FEATURE_CARDS = [
   {
     icon: 'language',
-    title: 'Web Apps',
-    description: 'Aplicaciones robustas y escalables con tecnologías modernas para optimizar tus operaciones de negocio.',
+    title: 'Landing Pages',
+    description: 'Landing pages en Quito pensadas para captar leads, agendar reuniones y convertir trafico en oportunidades reales.',
     accentClass: 'text-primary',
   },
   {
     icon: 'smartphone',
-    title: 'Apps Móviles',
-    description: 'Experiencias nativas y multiplataforma diseñadas para cautivar a tus usuarios en cualquier dispositivo.',
+    title: 'Paginas Web',
+    description: 'Sitios web profesionales para negocios, marcas personales y empresas que necesitan presencia digital clara y confiable.',
     accentClass: 'text-secondary',
   },
   {
     icon: 'settings_suggest',
-    title: 'Herramientas Internas',
-    description: 'Dashboards y sistemas de gestión personalizados que eliminan la fricción operativa de tu equipo.',
+    title: 'Sistemas Internos',
+    description: 'Dashboards y sistemas de gestion para equipos que quieren automatizar procesos y reducir trabajo manual.',
     accentClass: 'text-tertiary',
   },
   {
     icon: 'storefront',
-    title: 'Marketplaces',
-    description: 'Ecosistemas complejos de compra-venta diseñados para el crecimiento y la facilidad de transacción.',
+    title: 'Webs Comerciales',
+    description: 'Experiencias web enfocadas en ventas, catalogos, formularios y canales de contacto para negocios en crecimiento.',
     accentClass: 'text-primary',
   },
   {
     icon: 'cloud_sync',
-    title: 'SaaS',
-    description: 'Arquitecturas multi-tenant listas para el mercado global con planes de suscripción y gestión de usuarios.',
+    title: 'Software a Medida',
+    description: 'Plataformas y herramientas web a medida para empresas que necesitan procesos, usuarios y modulos personalizados.',
     accentClass: 'text-secondary',
   },
   {
     icon: 'psychology',
-    title: 'Soluciones IA',
-    description: 'Integración de modelos inteligentes para automatizar decisiones y análisis predictivo en tus plataformas.',
+    title: 'Automatizacion e IA',
+    description: 'Integracion de IA y automatizacion para acelerar tareas repetitivas y mejorar la operacion de tu negocio.',
     accentClass: 'text-tertiary',
   },
 ]
@@ -42,7 +42,9 @@ function FeaturesView() {
     <section className="py-32 px-8 bg-surface-container-low" id="servicios">
       <div className="max-w-7xl mx-auto">
         <div className="mb-20">
-          <h2 className="text-4xl md:text-6xl font-black mb-4 tracking-tighter">Qué construimos</h2>
+          <h2 className="text-4xl md:text-6xl font-black mb-4 tracking-tighter">
+            Que desarrollamos para negocios en Quito
+          </h2>
           <div className="h-1 w-24 bg-primary rounded-full" />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

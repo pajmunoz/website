@@ -63,7 +63,8 @@ function ContactView() {
               <span className="text-secondary">Hagámoslo</span>
             </h2>
             <p className="text-on-surface-variant text-xl mb-12 leading-relaxed">
-              Cuéntanos tu idea y te daremos una hoja de ruta técnica en menos de 24 horas.
+              Si buscas una landing page, una pagina web o desarrollo web en Quito, cuentanos tu
+              idea y te compartimos una hoja de ruta tecnica en menos de 24 horas.
             </p>
             <div className="space-y-6">
               <div className="flex items-center gap-4">
@@ -72,7 +73,7 @@ function ContactView() {
               </div>
               <div className="flex items-center gap-4">
                 <span className="material-symbols-outlined text-primary">location_on</span>
-                <span>Quito, Ecuador</span>
+                <span>Quito, Ecuador · Atendemos negocios locales y remotos</span>
               </div>
             </div>
           </div>

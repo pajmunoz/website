@@ -24,24 +24,24 @@ function HeroView() {
           data-anim="hero-badge"
           className="text-sm uppercase tracking-[0.2em] text-secondary font-bold mb-6 block"
         >
-          Innovación Digital
+          Desarrollo Web en Quito
         </span>
         <h1
           data-anim="hero-title"
           className="text-5xl md:text-8xl font-black tracking-tight leading-[0.9] mb-8 font-headline"
         >
-          De idea a producto
+          Landing pages y
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-tertiary to-secondary">
-            en tiempo récord
+            paginas web para negocios en Quito
           </span>
         </h1>
         <p
           data-anim="hero-subtitle"
           className="text-on-surface-variant text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light leading-relaxed"
         >
-          Construimos productos digitales de alta gama que automatizan tu flujo de trabajo, escalan
-          tu visión y mejoran la vida de tus usuarios.
+          Disenamos y desarrollamos landing pages, sitios corporativos y experiencias web para
+          negocios en Quito que buscan captar mas clientes, verse profesionales y lanzar rapido.
         </p>
         <div data-anim="hero-cta" className="flex flex-col md:flex-row items-center justify-center gap-6">
           <a

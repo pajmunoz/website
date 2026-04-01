@@ -15,7 +15,7 @@ type PricingPlan = {
 
 const PRICING_PLANS: PricingPlan[] = [
   {
-    name: 'Plan Start',
+    name: 'Landing page para captar clientes',
     price: 'USD 120–180',
     pricePeriod: '/pago único',
     accentClass: 'text-primary',
@@ -24,15 +24,15 @@ const PRICING_PLANS: PricingPlan[] = [
     featured: false,
     buttonVariant: 'outline',
     bullets: [
-      '1 landing page',
-      'Diseño responsive',
+      '1 landing page enfocada en conversion',
+      'Diseno responsive',
       'Botón de WhatsApp',
       'Formulario de contacto',
-      'Entrega rápida',
+      'Entrega rapida',
     ],
   },
   {
-    name: 'Plan Growth',
+    name: 'Pagina web para negocio',
     price: 'USD 250–400',
     pricePeriod: '/proyecto',
     accentClass: 'text-secondary',
@@ -42,16 +42,16 @@ const PRICING_PLANS: PricingPlan[] = [
     bgClass: 'bg-surface-container-high/60',
     buttonVariant: 'filled',
     bullets: [
-      'Web 3-5 secciones',
-      'Diseño UX básico',
-      'Optimización móvil',
+      'Web de 3 a 5 secciones',
+      'Diseno UX basico',
+      'Optimizacion movil',
       'Integración con WhatsApp',
-      'SEO básico',
+      'SEO basico on-page',
       'Analytics',
     ],
   },
   {
-    name: 'Plan Pro',
+    name: 'Pagina web corporativa',
     price: 'USD 450–700',
     pricePeriod: '/proyecto',
     accentClass: 'text-tertiary',
@@ -60,15 +60,15 @@ const PRICING_PLANS: PricingPlan[] = [
     featured: false,
     buttonVariant: 'outline',
     bullets: [
-      'Web personalizada',
-      'UX optimizado a conversión',
+      'Sitio web personalizado',
+      'UX optimizado a conversion',
       'Mejora de performance',
-      'SEO técnico básico',
+      'SEO tecnico basico',
       'Integraciones avanzadas',
     ],
   },
   {
-    name: 'Plan System',
+    name: 'Sistema web a medida',
     price: 'USD 700–1200+',
     pricePeriod: '/proyecto',
     accentClass: 'text-on-surface',
@@ -79,7 +79,7 @@ const PRICING_PLANS: PricingPlan[] = [
     bullets: [
       'App web o sistema a medida',
       'Dashboards',
-      'Automatización',
+      'Automatizacion',
       'Funcionalidades personalizadas',
     ],
   },
@@ -91,11 +91,11 @@ function ServicesView() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tighter">
-            Planes de inversión
+            Desarrollo web y landing pages en Quito
           </h2>
           <p className="text-on-surface-variant max-w-2xl mx-auto">
-            Soluciones adaptadas a cada etapa de tu negocio, con transparencia y enfoque en
-            resultados.
+            Paquetes pensados para negocios que necesitan una landing page, una pagina web
+            profesional o un sistema web a medida con foco en resultados.
           </p>
         </div>
 

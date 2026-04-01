@@ -2,28 +2,28 @@ const WHY_US_CARDS = [
   {
     icon: 'hub',
     title: 'Consultoría de IA',
-    text: 'No solo codificamos, asesoramos sobre cómo la IA puede transformar tu modelo de negocio.',
+    text: 'No solo codificamos: ayudamos a negocios en Quito a detectar donde una web, automatizacion o IA puede generar retorno real.',
     iconBg: 'bg-primary/10 group-hover:bg-primary/20',
     iconColor: 'text-primary',
   },
   {
     icon: 'verified',
     title: 'Estándares Pro',
-    text: 'Aplicamos metodologías ágiles y Clean Architecture para asegurar que tu código dure años.',
+    text: 'Aplicamos buenas practicas de desarrollo web para que tu pagina o sistema sea rapido, mantenible y listo para crecer.',
     iconBg: 'bg-secondary/10 group-hover:bg-secondary/20',
     iconColor: 'text-secondary',
   },
   {
     icon: 'chat',
     title: 'Comunicación',
-    text: 'Sin secretos. Canales abiertos y actualizaciones constantes para que siempre sepas en qué punto estamos.',
+    text: 'Sin secretos. Comunicacion clara, avances visibles y decisiones compartidas para que tu empresa sepa exactamente en que etapa va el proyecto.',
     iconBg: 'bg-tertiary/10 group-hover:bg-tertiary/20',
     iconColor: 'text-tertiary',
   },
   {
     icon: 'support_agent',
     title: 'Soporte Continuo',
-    text: 'El lanzamiento es solo el inicio. Ofrecemos mantenimiento y evolución técnica proactiva.',
+    text: 'El lanzamiento es solo el inicio. Damos soporte y mejoras para landing pages, sitios web y sistemas que siguen evolucionando.',
     iconBg: 'bg-primary/10 group-hover:bg-primary/20',
     iconColor: 'text-primary',
   },
@@ -38,8 +38,8 @@ function WhyUsView() {
             Por qué elegirnos
           </h2>
           <p className="text-on-surface-variant max-w-2xl mx-auto">
-            Nuestra ventaja competitiva reside en la combinación de ingeniería de precisión y visión
-            humana.
+            Combinamos estrategia, desarrollo web y enfoque comercial para negocios en Quito que
+            necesitan una presencia digital que genere resultados.
           </p>
         </div>
 
