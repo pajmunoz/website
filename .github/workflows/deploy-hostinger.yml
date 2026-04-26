@@ -84,6 +84,6 @@ jobs:
           local-dir: ./dist/
           # La cuenta FTP de Hostinger suele abrir ya en public_html; ./public_html/ duplicaba la carpeta.
           server-dir: ./
-          dangerous-clean-slate: true
+          dangerous-clean-slate: false
           exclude: |
             **/blog/**
